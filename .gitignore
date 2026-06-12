@@ -1,2 +1,15 @@
-target
+# Rust build artifacts
+target/
+**/target/
 Cargo.lock
+**/Cargo.lock
+
+# Cargo local package indicators
+.cargo-ok
+**/.cargo-ok
+.cargo_vcs_info.json
+**/.cargo_vcs_info.json
+
+# OS and Editor temp files
+.DS_Store
+.vscode/

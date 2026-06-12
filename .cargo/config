@@ -1,11 +1,16 @@
 [target]
 runner = { default = "xtensa-lx106-elf-gdb -q -x openocd.gdb" }
 
-[build]
+[target.xtensa-esp8266-none-elf]
+linker = "xtensa-esp32-elf-gcc"
 rustflags = [
   "-C", "link-arg=-nostartfiles",
   "-C", "link-arg=-Wl,-Tlink.x",
+  "-C", "force-frame-pointers=no",
+  "-C", "link-arg=-mabi=call0",
 ]
+
+[build]
 target = "xtensa-esp8266-none-elf"
 
 [unstable]

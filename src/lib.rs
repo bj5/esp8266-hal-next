@@ -1,4 +1,5 @@
 #![no_std]
+#![feature(asm_experimental_arch)]
 
 pub use embedded_hal as ehal;
 pub use esp8266 as target;
@@ -57,3 +58,19 @@ pub unsafe extern "C" fn ESP8266Reset() -> ! {
     // continue with default reset handler
     xtensa_lx_rt::Reset();
 }
+
+struct MyCriticalSection;
+critical_section::set_impl!(MyCriticalSection);
+
+unsafe impl critical_section::Impl for MyCriticalSection {
+    unsafe fn acquire() -> critical_section::RawRestoreState {
+        let ps: u32;
+        core::arch::asm!("rsil {0}, 15", out(reg) ps);
+        ps
+    }
+
+    unsafe fn release(restore_state: critical_section::RawRestoreState) {
+        core::arch::asm!("wsr {0}, ps", in(reg) restore_state);
+    }
+}
+

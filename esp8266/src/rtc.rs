@@ -2,19 +2,21 @@
 #[repr(C)]
 #[cfg_attr(feature = "impl-register-debug", derive(Debug))]
 pub struct RegisterBlock {
+
     _reserved0: [u8; 0x14],
-    rtc_state1: RTC_STATE1,
+    pub rtc_state1: RTC_STATE1,
     _reserved1: [u8; 0x18],
-    rtc_store0: RTC_STORE0,
+    pub rtc_store0: RTC_STORE0,
     _reserved2: [u8; 0x34],
-    rtc_gpio_out: RTC_GPIO_OUT,
+    pub rtc_gpio_out: RTC_GPIO_OUT,
     _reserved3: [u8; 0x08],
-    rtc_gpio_enable: RTC_GPIO_ENABLE,
+    pub rtc_gpio_enable: RTC_GPIO_ENABLE,
     _reserved4: [u8; 0x14],
-    rtc_gpio_in_data: RTC_GPIO_IN_DATA,
-    rtc_gpio_conf: RTC_GPIO_CONF,
+    pub rtc_gpio_in_data: RTC_GPIO_IN_DATA,
+    pub rtc_gpio_conf: RTC_GPIO_CONF,
     _reserved6: [u8; 0x0c],
-    pad_xpd_dcdc_conf: PAD_XPD_DCDC_CONF,
+    pub pad_xpd_dcdc_conf: PAD_XPD_DCDC_CONF,
+
 }
 impl RegisterBlock {
     #[doc = "0x14 - RTC_STATE1"]

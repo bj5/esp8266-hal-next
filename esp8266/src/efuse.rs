@@ -2,10 +2,12 @@
 #[repr(C)]
 #[cfg_attr(feature = "impl-register-debug", derive(Debug))]
 pub struct RegisterBlock {
-    efuse_data0: EFUSE_DATA0,
-    efuse_data1: EFUSE_DATA1,
-    efuse_data2: EFUSE_DATA2,
-    efuse_data3: EFUSE_DATA3,
+
+    pub efuse_data0: EFUSE_DATA0,
+    pub efuse_data1: EFUSE_DATA1,
+    pub efuse_data2: EFUSE_DATA2,
+    pub efuse_data3: EFUSE_DATA3,
+
 }
 impl RegisterBlock {
     #[doc = "0x00 - EFUSE_DATA0"]

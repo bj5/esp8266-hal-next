@@ -2,22 +2,24 @@
 #[repr(C)]
 #[cfg_attr(feature = "impl-register-debug", derive(Debug))]
 pub struct RegisterBlock {
-    uart_fifo: UART_FIFO,
-    uart_int_raw: UART_INT_RAW,
-    uart_int_st: UART_INT_ST,
-    uart_int_ena: UART_INT_ENA,
-    uart_int_clr: UART_INT_CLR,
-    uart_clkdiv: UART_CLKDIV,
-    uart_autobaud: UART_AUTOBAUD,
-    uart_status: UART_STATUS,
-    uart_conf0: UART_CONF0,
-    uart_conf1: UART_CONF1,
-    uart_lowpulse: UART_LOWPULSE,
-    uart_highpulse: UART_HIGHPULSE,
-    uart_rxd_cnt: UART_RXD_CNT,
+
+    pub uart_fifo: UART_FIFO,
+    pub uart_int_raw: UART_INT_RAW,
+    pub uart_int_st: UART_INT_ST,
+    pub uart_int_ena: UART_INT_ENA,
+    pub uart_int_clr: UART_INT_CLR,
+    pub uart_clkdiv: UART_CLKDIV,
+    pub uart_autobaud: UART_AUTOBAUD,
+    pub uart_status: UART_STATUS,
+    pub uart_conf0: UART_CONF0,
+    pub uart_conf1: UART_CONF1,
+    pub uart_lowpulse: UART_LOWPULSE,
+    pub uart_highpulse: UART_HIGHPULSE,
+    pub uart_rxd_cnt: UART_RXD_CNT,
     _reserved13: [u8; 0x44],
-    uart_date: UART_DATE,
-    uart_id: UART_ID,
+    pub uart_date: UART_DATE,
+    pub uart_id: UART_ID,
+
 }
 impl RegisterBlock {
     #[doc = "0x00 - UART FIFO,length 128"]

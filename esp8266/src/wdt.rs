@@ -2,13 +2,15 @@
 #[repr(C)]
 #[cfg_attr(feature = "impl-register-debug", derive(Debug))]
 pub struct RegisterBlock {
-    wdt_ctl: WDT_CTL,
-    wdt_op: WDT_OP,
-    wdt_op_nd: WDT_OP_ND,
-    count: COUNT,
-    stage: STAGE,
-    wdt_rst: WDT_RST,
-    reset_stage: RESET_STAGE,
+
+    pub wdt_ctl: WDT_CTL,
+    pub wdt_op: WDT_OP,
+    pub wdt_op_nd: WDT_OP_ND,
+    pub count: COUNT,
+    pub stage: STAGE,
+    pub wdt_rst: WDT_RST,
+    pub reset_stage: RESET_STAGE,
+
 }
 impl RegisterBlock {
     #[doc = "0x00 - WDT_CTL"]

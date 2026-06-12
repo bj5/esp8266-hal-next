@@ -2,16 +2,18 @@
 #[repr(C)]
 #[cfg_attr(feature = "impl-register-debug", derive(Debug))]
 pub struct RegisterBlock {
-    frc1_load: FRC1_LOAD,
-    frc1_count: FRC1_COUNT,
-    frc1_ctrl: FRC1_CTRL,
-    frc1_int: FRC1_INT,
+
+    pub frc1_load: FRC1_LOAD,
+    pub frc1_count: FRC1_COUNT,
+    pub frc1_ctrl: FRC1_CTRL,
+    pub frc1_int: FRC1_INT,
     _reserved4: [u8; 0x10],
-    frc2_load: FRC2_LOAD,
-    frc2_count: FRC2_COUNT,
-    frc2_ctrl: FRC2_CTRL,
-    frc2_int: FRC2_INT,
-    frc2_alarm: FRC2_ALARM,
+    pub frc2_load: FRC2_LOAD,
+    pub frc2_count: FRC2_COUNT,
+    pub frc2_ctrl: FRC2_CTRL,
+    pub frc2_int: FRC2_INT,
+    pub frc2_alarm: FRC2_ALARM,
+
 }
 impl RegisterBlock {
     #[doc = "0x00 - the load value into the counter"]

@@ -2,23 +2,25 @@
 #[repr(C)]
 #[cfg_attr(feature = "impl-register-debug", derive(Debug))]
 pub struct RegisterBlock {
-    io_mux_conf: IO_MUX_CONF,
-    io_mux_mtdi: IO_MUX_MTDI,
-    io_mux_mtck: IO_MUX_MTCK,
-    io_mux_mtms: IO_MUX_MTMS,
-    io_mux_mtdo: IO_MUX_MTDO,
-    io_mux_u0rxd: IO_MUX_U0RXD,
-    io_mux_u0txd: IO_MUX_U0TXD,
-    io_mux_sd_clk: IO_MUX_SD_CLK,
-    io_mux_sd_data0: IO_MUX_SD_DATA0,
-    io_mux_sd_data1: IO_MUX_SD_DATA1,
-    io_mux_sd_data2: IO_MUX_SD_DATA2,
-    io_mux_sd_data3: IO_MUX_SD_DATA3,
-    io_mux_sd_cmd: IO_MUX_SD_CMD,
-    io_mux_gpio0: IO_MUX_GPIO0,
-    io_mux_gpio2: IO_MUX_GPIO2,
-    io_mux_gpio4: IO_MUX_GPIO4,
-    io_mux_gpio5: IO_MUX_GPIO5,
+
+    pub io_mux_conf: IO_MUX_CONF,
+    pub io_mux_mtdi: IO_MUX_MTDI,
+    pub io_mux_mtck: IO_MUX_MTCK,
+    pub io_mux_mtms: IO_MUX_MTMS,
+    pub io_mux_mtdo: IO_MUX_MTDO,
+    pub io_mux_u0rxd: IO_MUX_U0RXD,
+    pub io_mux_u0txd: IO_MUX_U0TXD,
+    pub io_mux_sd_clk: IO_MUX_SD_CLK,
+    pub io_mux_sd_data0: IO_MUX_SD_DATA0,
+    pub io_mux_sd_data1: IO_MUX_SD_DATA1,
+    pub io_mux_sd_data2: IO_MUX_SD_DATA2,
+    pub io_mux_sd_data3: IO_MUX_SD_DATA3,
+    pub io_mux_sd_cmd: IO_MUX_SD_CMD,
+    pub io_mux_gpio0: IO_MUX_GPIO0,
+    pub io_mux_gpio2: IO_MUX_GPIO2,
+    pub io_mux_gpio4: IO_MUX_GPIO4,
+    pub io_mux_gpio5: IO_MUX_GPIO5,
+
 }
 impl RegisterBlock {
     #[doc = "0x00 - IO_MUX_CONF"]

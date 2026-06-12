@@ -2,16 +2,18 @@
 #[repr(C)]
 #[cfg_attr(feature = "impl-register-debug", derive(Debug))]
 pub struct RegisterBlock {
+
     _reserved0: [u8; 0x04],
-    edge_int_enable: EDGE_INT_ENABLE,
+    pub edge_int_enable: EDGE_INT_ENABLE,
     _reserved1: [u8; 0x04],
-    spi_cache: SPI_CACHE,
+    pub spi_cache: SPI_CACHE,
     _reserved2: [u8; 0x04],
-    dport_ctl: DPORT_CTL,
+    pub dport_ctl: DPORT_CTL,
     _reserved3: [u8; 0x08],
-    spi_interrupt_type: SPI_INTERRUPT_TYPE,
-    spi_cache_target: SPI_CACHE_TARGET,
-    ioswap: IOSWAP,
+    pub spi_interrupt_type: SPI_INTERRUPT_TYPE,
+    pub spi_cache_target: SPI_CACHE_TARGET,
+    pub ioswap: IOSWAP,
+
 }
 impl RegisterBlock {
     #[doc = "0x04 - EDGE_INT_ENABLE"]

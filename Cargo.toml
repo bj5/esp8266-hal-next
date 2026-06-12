@@ -12,12 +12,13 @@ categories = ["embedded", "hardware-support", "no-std"]
 
 [dependencies]
 embedded-hal = { version = "0.2", features = ["unproven"] }
-esp8266      = { version = "0.6", path = "./esp8266" }
+esp8266      = { version = "0.7.0", path = "./esp8266", features = ["critical-section"] }
 nb           = "1.0"
 paste        = { version = "1.0", optional = true }
 void         = { version = "1.0", default-features = false }
-xtensa-lx    = { version = "0.7", features = ["esp8266"] }
-xtensa-lx-rt = { version = "0.12", features = ["esp8266"], optional = true }
+xtensa-lx    = { version = "0.8.0", features = ["esp8266"] }
+xtensa-lx-rt = { version = "0.16.1", features = ["esp8266"], optional = true }
+critical-section = { version = "1.1.1", features = ["restore-state-u32"] }
 
 [dependencies.esp8266-hal-proc-macros]
 path    = "procmacros"
@@ -25,6 +26,7 @@ version = "=0.1"
 
 [dev-dependencies]
 panic-halt = "0.2"
+esp8266-wifi = { path = "./esp8266-wifi" }
 
 [features]
 default   = ["interrupt", "rt"]
@@ -36,13 +38,29 @@ rt        = ["xtensa-lx-rt"]
 all_in_ram = []
 
 [profile.dev]
-lto       = true
-opt-level = 1
+lto       = false
+opt-level = 0
 
 # Workaround for linker errors when using lto with the dev profile:
 # https://github.com/rust-lang/compiler-builtins/issues/347
-[profile.dev.package.compiler_builtins]
+[profile.dev.package."*"]
+opt-level = "s"
+debug-assertions = false
+overflow-checks = false
+
+[profile.release.package."*"]
+opt-level = "s"
+debug-assertions = false
 overflow-checks = false
 
 [profile.release]
-lto = true
+lto = false
+
+[patch.crates-io]
+xtensa-lx-rt = { path = "./xtensa-lx-rt" }
+
+[workspace]
+members = [
+    ".",
+    "esp8266-wifi",
+]

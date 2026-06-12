@@ -2,17 +2,19 @@
 #[repr(C)]
 #[cfg_attr(feature = "impl-register-debug", derive(Debug))]
 pub struct RegisterBlock {
-    i2stxfifo: I2STXFIFO,
-    i2srxfifo: I2SRXFIFO,
-    i2sconf: I2SCONF,
-    i2sint_raw: I2SINT_RAW,
-    i2sint_st: I2SINT_ST,
-    i2sint_ena: I2SINT_ENA,
-    i2sint_clr: I2SINT_CLR,
-    i2stiming: I2STIMING,
-    i2s_fifo_conf: I2S_FIFO_CONF,
-    i2srxeof_num: I2SRXEOF_NUM,
-    i2sconf_sigle_data: I2SCONF_SIGLE_DATA,
+
+    pub i2stxfifo: I2STXFIFO,
+    pub i2srxfifo: I2SRXFIFO,
+    pub i2sconf: I2SCONF,
+    pub i2sint_raw: I2SINT_RAW,
+    pub i2sint_st: I2SINT_ST,
+    pub i2sint_ena: I2SINT_ENA,
+    pub i2sint_clr: I2SINT_CLR,
+    pub i2stiming: I2STIMING,
+    pub i2s_fifo_conf: I2S_FIFO_CONF,
+    pub i2srxeof_num: I2SRXEOF_NUM,
+    pub i2sconf_sigle_data: I2SCONF_SIGLE_DATA,
+
 }
 impl RegisterBlock {
     #[doc = "0x00 - I2STXFIFO"]

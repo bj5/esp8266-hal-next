@@ -2,8 +2,10 @@
 #[repr(C)]
 #[cfg_attr(feature = "impl-register-debug", derive(Debug))]
 pub struct RegisterBlock {
+
     _reserved0: [u8; 0x10],
-    pll: PLL,
+    pub pll: PLL,
+
 }
 impl RegisterBlock {
     #[doc = "0x10 - PLL I2C Register"]

@@ -2,7 +2,9 @@
 #[repr(C)]
 #[cfg_attr(feature = "impl-register-debug", derive(Debug))]
 pub struct RegisterBlock {
-    rng: RNG,
+
+    pub rng: RNG,
+
 }
 impl RegisterBlock {
     #[doc = "0x00 - RNG register"]
